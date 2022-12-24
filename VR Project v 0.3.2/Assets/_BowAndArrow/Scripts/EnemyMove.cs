@@ -7,13 +7,12 @@ public class EnemyMove : MonoBehaviour
     public float speed = 10f;
     public GameObject player;
 
-    private Vector3 position;
     private Vector3 heading;
 
     // Start is called before the first frame update
     void Start()
     {
-        position = transform.position;
+        player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
     }
 
     // Update is called once per frame
