@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿
+using BNG;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -11,6 +13,7 @@ public class Arrow : XRGrabInteractable
 
     private bool launched = false;
 
+
     private RaycastHit hit;
 
     protected override void Awake()
@@ -19,8 +22,10 @@ public class Arrow : XRGrabInteractable
         base.Awake();
 
         // our override
+   
         rigidbody = GetComponent<Rigidbody>();
         caster = GetComponent<ArrowCaster>();
+   
     }
 
     protected override void OnSelectExited(SelectExitEventArgs args)
@@ -94,16 +99,43 @@ public class Arrow : XRGrabInteractable
     private void ChildArrow(RaycastHit hit)
     {
         transform.SetParent(hit.transform);
+        
     }
 
     private void CheckForHittable(RaycastHit hit)
     {
+        string nameObject = hit.transform.name.ToLower();
+        if (nameObject.Contains("breakable"))
+        {
+            Damageable d = hit.transform.gameObject.GetComponent<Damageable>();
+            if (d)
+            {
+                d.DealDamage(50);
+                DestroyGameObject();
+            }
+        }
+       
+
         if (hit.transform.TryGetComponent(out IArrowHittable hittable))
+        {
+
             hittable.Hit(this);
+
+        }
+            
+
+        
     }
+
 
     public override bool IsSelectableBy(IXRSelectInteractor interactor)
     {
         return base.IsSelectableBy(interactor) && !launched;
+    }
+
+
+    void DestroyGameObject()
+    {
+        Destroy(gameObject);
     }
 }

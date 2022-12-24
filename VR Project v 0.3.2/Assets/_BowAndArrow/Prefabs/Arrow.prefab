@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8371234334440448612}
   - component: {fileID: 4902982125418022909}
   - component: {fileID: 384999108649450282}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shaft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8623957444106179151}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 8386148805111352677}
   - component: {fileID: 4086743000292619854}
   - component: {fileID: 5509991328502552229}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_RetainTransformParent: 0
   m_AttachPointCompatibilityMode: 0
   speed: 1500
+  ProjectileObject: {fileID: 0}
 --- !u!114 &6072647748450659436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7069540796795955509}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}

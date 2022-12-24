@@ -10,6 +10,7 @@ public class Target : MonoBehaviour, IArrowHittable
         ApplyMaterial();
         ApplyForce(arrow);
         DisableCollider(arrow);
+ 
     }
 
     private void ApplyMaterial()
@@ -28,5 +29,10 @@ public class Target : MonoBehaviour, IArrowHittable
     {
         if (arrow.TryGetComponent(out Collider collider))
             collider.enabled = false;
+    }
+
+    void DestroyGameObject()
+    {
+        Destroy(gameObject);
     }
 }
