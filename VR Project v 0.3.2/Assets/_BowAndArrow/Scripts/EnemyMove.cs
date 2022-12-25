@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     public float speed = 10f;
-    public GameObject player;
+    private GameObject player;
 
     private Vector3 heading;
 
@@ -16,7 +16,7 @@ public class EnemyMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         heading = transform.position - player.transform.position;
 
@@ -24,5 +24,9 @@ public class EnemyMove : MonoBehaviour
         Vector3 direction = heading / distance;
 
         transform.position -= direction * Time.deltaTime * speed;
+
+        transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 1.3f, player.transform.position.z ));
     }
+
+
 }

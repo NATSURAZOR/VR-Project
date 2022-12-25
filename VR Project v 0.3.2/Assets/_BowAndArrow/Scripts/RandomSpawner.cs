@@ -5,14 +5,39 @@ using UnityEngine;
 public class RandomSpawner : MonoBehaviour
 {
     public GameObject enemy;
+    private float rebootingTime;
+    private float spawnTime = 2.0f;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        rebootingTime += Time.deltaTime;
+
+        if (rebootingTime >= spawnTime)
         {
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-30, 10), 15, Random.Range(-30, 10));
-            Instantiate(enemy, randomSpawnPosition, Quaternion.identity);
+            spawnEnemy();
+            rebootingTime = 0;
         }
+    }
+
+    private Vector3 getSpawnPostion()
+    {
+        float x, y, z;
+         
+        y = 4.0f;
+
+        float[] xRange = new float[] { Random.Range(-40f, -10f), Random.Range(10f, 40f) };
+        x = xRange[Random.Range(0, xRange.Length)];
+
+        float[] zRange = new float[] { Random.Range(-40f, -10f), Random.Range(10f, 40f) };
+        z = zRange[Random.Range(0, 2)];
+
+
+        return new Vector3(x, y, z);
+    }
+    private void spawnEnemy()
+    {
+        Vector3 randomSpawnPosition = getSpawnPostion();
+        Instantiate(enemy, randomSpawnPosition, Quaternion.identity);
     }
 }
