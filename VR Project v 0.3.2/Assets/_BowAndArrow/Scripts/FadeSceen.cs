@@ -38,11 +38,10 @@ public class FadeSceen : MonoBehaviour
 
     public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
     {
-        Debug.Log("start");
+   
         float timer = 0;
         while(timer <= fadeDuration)
         {
-            Debug.Log("on while loop");
             Color newColor = fadeColor;
             newColor.a = Mathf.Lerp(alphaIn, alphaOut, timer / fadeDuration);
 

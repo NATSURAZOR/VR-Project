@@ -6,7 +6,7 @@ public class RandomSpawner : MonoBehaviour
 {
     public GameObject enemy;
     private float rebootingTime;
-    public float spawnTime = 2.0f;
+    public float spawnTime = 5.0f;
 
     // Update is called once per frame
     void Update()

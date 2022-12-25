@@ -14,7 +14,7 @@ public class Quiver : XRBaseInteractable
     void FixedUpdate()
     {
         Vector3 playerPos = player.transform.position;
-        transform.position = new Vector3(playerPos.x, playerPos.y, playerPos.z - 0.2f);
+        transform.position = new Vector3(playerPos.x, playerPos.y, playerPos.z - 0.4f);
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)

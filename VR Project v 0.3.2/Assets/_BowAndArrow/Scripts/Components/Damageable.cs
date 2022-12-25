@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 #if INVECTOR_BASIC || INVECTOR_AI_TEMPLATE
 using Invector;
 #endif
@@ -14,6 +15,8 @@ namespace BNG {
 
         public float Health = 100;
         private float _startingHealth;
+
+        public FadeSceen fadeScreen;
 
         [Tooltip("If specified, this GameObject will be instantiated at this transform's position on death.")]
         public GameObject SpawnOnDeath;
@@ -119,10 +122,22 @@ namespace BNG {
 
             if (Health <= 0) {
                 Debug.Log("You dead(((((");
+                GoToScene(0);
             }
         }
+        public void GoToScene(int sceneIndex)
+        {
+            StartCoroutine(GoToSceneRoutine(sceneIndex));
+        }
+        IEnumerator GoToSceneRoutine(int sceneIndex)
+        {
+            fadeScreen.FadeOut();
+            yield return new WaitForSeconds(fadeScreen.fadeDuration);
 
-        
+            // Launch the new scene
+            SceneManager.LoadScene(sceneIndex);
+        }
+
         public virtual void DestroyThis() {
             Health = 0;
             destroyed = true;
