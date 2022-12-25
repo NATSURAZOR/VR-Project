@@ -4,6 +4,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Quiver : XRBaseInteractable
 {
     [SerializeField] private GameObject arrowPrefab;
+    public GameObject player;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 playerPos = player.transform.position;
+        transform.position = new Vector3(playerPos.x, playerPos.y, playerPos.z - 0.2f);
+    }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {

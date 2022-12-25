@@ -6,7 +6,7 @@ public class RandomSpawner : MonoBehaviour
 {
     public GameObject enemy;
     private float rebootingTime;
-    private float spawnTime = 2.0f;
+    public float spawnTime = 2.0f;
 
     // Update is called once per frame
     void Update()
@@ -35,8 +35,15 @@ public class RandomSpawner : MonoBehaviour
 
         return new Vector3(x, y, z);
     }
+
+    //private float enemyScale()
+    //{
+        //return Random.Range(0.7f, 1.5f);
+    //}
     private void spawnEnemy()
     {
+
+        //enemy.transform.localScale *= enemyScale();
         Vector3 randomSpawnPosition = getSpawnPostion();
         Instantiate(enemy, randomSpawnPosition, Quaternion.identity);
     }

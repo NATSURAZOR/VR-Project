@@ -118,10 +118,11 @@ namespace BNG {
 #endif
 
             if (Health <= 0) {
-                DestroyThis();
+                Debug.Log("You dead(((((");
             }
         }
 
+        
         public virtual void DestroyThis() {
             Health = 0;
             destroyed = true;
@@ -216,4 +217,5 @@ namespace BNG {
             }
         }
     }
+        
 }

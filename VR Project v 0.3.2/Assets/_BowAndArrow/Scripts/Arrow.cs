@@ -10,6 +10,7 @@ public class Arrow : XRGrabInteractable
 
     private new Rigidbody rigidbody;
     private ArrowCaster caster;
+    public int arrowDamage = 50;
 
     private bool launched = false;
 
@@ -110,9 +111,26 @@ public class Arrow : XRGrabInteractable
             Damageable d = hit.transform.gameObject.GetComponent<Damageable>();
             if (d)
             {
-                d.DealDamage(50);
+                d.DealDamage(arrowDamage);
                 DestroyGameObject();
             }
+        }
+
+        string tagObject = hit.transform.tag.ToLower();
+        if (tagObject.Contains("enemy"))
+        {
+            Damageable d = hit.transform.gameObject.GetComponent<Damageable>();
+            if (hit.transform.localScale.x <= 1.1f)
+            {
+                d.DealDamage(arrowDamage * 2);
+                DestroyGameObject();
+            }
+            else
+            {
+                d.DealDamage(arrowDamage);
+               
+            }
+            
         }
        
 
