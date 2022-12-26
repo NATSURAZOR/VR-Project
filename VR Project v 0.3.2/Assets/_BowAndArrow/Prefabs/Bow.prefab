@@ -233,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5854033015894534605}
   - component: {fileID: 705318187586076703}
+  - component: {fileID: 6798383422880866255}
   - component: {fileID: 420424634}
   - component: {fileID: 420424635}
   - component: {fileID: 78605512844086003}
@@ -277,6 +278,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_Colliders:
   - {fileID: 420424634}
+  - {fileID: 6798383422880866255}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -378,6 +380,21 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+  bowCollider: {fileID: 0}
+--- !u!136 &6798383422880866255
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2589571369817754473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.01
+  m_Height: 0.1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.1, z: 0.03}
 --- !u!136 &420424634
 CapsuleCollider:
   m_ObjectHideFlags: 0

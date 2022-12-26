@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SceneManagement;
 #if INVECTOR_BASIC || INVECTOR_AI_TEMPLATE
 using Invector;
 #endif
@@ -15,8 +14,9 @@ namespace BNG {
 
         public float Health = 100;
         private float _startingHealth;
+        private Animator myAnim;
 
-        public FadeSceen fadeScreen;
+        
 
         [Tooltip("If specified, this GameObject will be instantiated at this transform's position on death.")]
         public GameObject SpawnOnDeath;
@@ -91,6 +91,12 @@ namespace BNG {
             if (rigid) {
                 initialWasKinematic = rigid.isKinematic;
             }
+            if (transform.CompareTag("Enemy"))
+            {
+               
+                myAnim = GetComponent<Animator>();
+                
+            }
         }
 
         public virtual void DealDamage(float damageAmount) {
@@ -102,6 +108,9 @@ namespace BNG {
             if (destroyed) {
                 return;
             }
+
+            
+            
 
             Health -= damageAmount;
 
@@ -121,22 +130,23 @@ namespace BNG {
 #endif
 
             if (Health <= 0) {
-                Debug.Log("You dead(((((");
-                GoToScene(0);
+                if (transform.CompareTag("MainCamera") || transform.CompareTag("Enemy"))
+                {
+                    return;
+                }
+                
+                           
+                DestroyThis();
+              
+               
             }
+            if (transform.CompareTag("Enemy"))
+            {
+                myAnim.Play("GetHit");
+            }
+            
         }
-        public void GoToScene(int sceneIndex)
-        {
-            StartCoroutine(GoToSceneRoutine(sceneIndex));
-        }
-        IEnumerator GoToSceneRoutine(int sceneIndex)
-        {
-            fadeScreen.FadeOut();
-            yield return new WaitForSeconds(fadeScreen.fadeDuration);
 
-            // Launch the new scene
-            SceneManager.LoadScene(sceneIndex);
-        }
 
         public virtual void DestroyThis() {
             Health = 0;

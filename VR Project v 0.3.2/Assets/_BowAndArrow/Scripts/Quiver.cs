@@ -5,6 +5,10 @@ public class Quiver : XRBaseInteractable
 {
     [SerializeField] private GameObject arrowPrefab;
     public GameObject player;
+    public Transform target;
+    public float smoothSpeed = 0.125f;
+    public Vector3 locationOffset;
+    public Vector3 rotationOffset;
 
     void Start()
     {
@@ -13,8 +17,13 @@ public class Quiver : XRBaseInteractable
 
     void FixedUpdate()
     {
-        Vector3 playerPos = player.transform.position;
-        transform.position = new Vector3(playerPos.x, playerPos.y, playerPos.z - 0.4f);
+        Vector3 desiredPosition = target.position + target.rotation * locationOffset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
+
+        Quaternion desiredrotation = target.rotation * Quaternion.Euler(rotationOffset);
+        Quaternion smoothedrotation = Quaternion.Lerp(transform.rotation, desiredrotation, smoothSpeed);
+        transform.rotation = smoothedrotation;
     }
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)

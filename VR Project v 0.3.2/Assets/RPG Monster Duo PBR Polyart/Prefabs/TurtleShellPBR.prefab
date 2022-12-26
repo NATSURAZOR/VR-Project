@@ -806,6 +806,8 @@ GameObject:
   - component: {fileID: 6592859366655072215}
   - component: {fileID: 3875570561618426480}
   - component: {fileID: 5956219189743153880}
+  - component: {fileID: 1712834395}
+  - component: {fileID: 1595595869}
   m_Layer: 0
   m_Name: TurtleShellPBR
   m_TagString: Enemy
@@ -842,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6081eb862933aa64a9e31f52ffaba826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 0.4
 --- !u!54 &4465435765173616556
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -916,6 +918,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c9318c00fbaf84bad185199ac61257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDamage: 20
+  myAnim: {fileID: 0}
+--- !u!95 &1712834395
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774625739149480}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0d3c605385d6d9547a1e3f24e8248962, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1b58d63f942126347865fbdde70e67c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1595595869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774625739149480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deb524dc43e3934479df6781d207ae44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnim: {fileID: 0}
 --- !u!1 &1822049695589022
 GameObject:
   m_ObjectHideFlags: 0
