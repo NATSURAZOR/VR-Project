@@ -25,7 +25,7 @@ public class DealDamage : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
         rebootingTime += Time.deltaTime;
 
-        if (distance <= 1f)
+        if (distance <= 2.0f)
         {
             transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
             if (rebootingTime >= damageTime)
