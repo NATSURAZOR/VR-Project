@@ -6,11 +6,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Arrow : XRGrabInteractable
 {
-    [SerializeField] private float speed = 2000.0f;
+    [SerializeField] private float speed = 4000.0f;
 
     private new Rigidbody rigidbody;
     private ArrowCaster caster;
-    public int arrowDamage = 100;
+    public int arrowDamage = 50;
 
     private bool launched = false;
 
@@ -33,7 +33,7 @@ public class Arrow : XRGrabInteractable
     {
         // default of Awake
         base.OnSelectExited(args);
-
+        GetComponent<Collider>().enabled = false;
         // our override
         // check if arg is type of Notch
         if (args.interactorObject is Notch notch)
@@ -51,6 +51,7 @@ public class Arrow : XRGrabInteractable
         // The execution of a coroutine can be paused at any point using the yield statement.When a yield statement is used, the coroutine pauses execution and automatically resumes at the next frame.
         // Yielding of any type, including null, results in the execution coming back on a later frame, unless the coroutine is stopped or has completed.
         launched = true;
+        
         ApplyForce(notch.PullMeasurer);
         StartCoroutine(LaunchRoutine());
     }

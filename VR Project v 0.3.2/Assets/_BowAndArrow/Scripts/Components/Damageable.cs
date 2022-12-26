@@ -8,7 +8,7 @@ using Invector;
 
 namespace BNG {
     /// <summary>
-    /// A basic damage implementation. Call a function on death. Allow for respawning.
+    /// A basic damage implemzentation. Call a function on death. Allow for respawning.
     /// </summary>
     public class Damageable : MonoBehaviour {
 

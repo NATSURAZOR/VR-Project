@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137606935514613497}
   - component: {fileID: 1137606935514613499}
-  - component: {fileID: 1137606935514613498}
+  - component: {fileID: 7550980689414468775}
   m_Layer: 0
   m_Name: Notch
   m_TagString: Untagged
@@ -148,8 +148,8 @@ MonoBehaviour:
   m_InteractableHoverScale: 1
   m_RecycleDelayTime: 1
   releaseThreshold: 0.25
---- !u!135 &1137606935514613498
-SphereCollider:
+--- !u!136 &7550980689414468775
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,9 +158,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.05
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.11646755
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: -0.0040611774, y: 0, z: -0.015446514}
 --- !u!1 &1137606935890080576
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +381,6 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
-  bowCollider: {fileID: 0}
 --- !u!136 &6798383422880866255
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -391,10 +391,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.01
-  m_Height: 0.1
+  m_Radius: 0.00000001
+  m_Height: 0.4
   m_Direction: 1
-  m_Center: {x: 0, y: -0.1, z: 0.03}
+  m_Center: {x: 0, y: 0, z: 0.04}
 --- !u!136 &420424634
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -711,7 +711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7571621245530164144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -812,7 +812,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: -0.05}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7734374462635211803
 GameObject:
   m_ObjectHideFlags: 0
