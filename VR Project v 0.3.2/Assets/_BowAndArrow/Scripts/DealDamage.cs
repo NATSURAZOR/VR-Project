@@ -12,6 +12,7 @@ public class DealDamage : MonoBehaviour
 
     private float rebootingTime;
     private float damageTime = 2.0f;
+    public GameObject gameMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,29 +23,35 @@ public class DealDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!gameMenu.activeSelf)
+        {
+            return;
+        }
+
         float distance = Vector3.Distance(transform.position, player.transform.position);
         rebootingTime += Time.deltaTime;
 
-        if (distance <= 2.0f)
+        Damageable d = player.transform.gameObject.GetComponent<Damageable>();
+        if (d.Health <= 0)
         {
-            transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-            if (rebootingTime >= damageTime)
+            myAnim.Play("Victory");
+        }
+        else
+        {
+            if (distance <= 2.0f)
             {
-                Damageable d = player.transform.gameObject.GetComponent<Damageable>();
-                if (d.Health <= 0)
-                {
-                    myAnim.Play("Victory");
-                } else if (d)
+                transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+                if (d)
                 {
                     myAnim.Play("Attack01");
                     d.DealDamage(enemyDamage);
                     rebootingTime = 0;
                     Debug.Log("damage player");
                 }
-                
+
             }
 
-          
+
         }
     }
 }

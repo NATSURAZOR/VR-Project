@@ -845,6 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.6
+  gameMenu: {fileID: 3624315268396613536, guid: b1db0fb26c27edb4bb6c10b0caae6a5a, type: 3}
 --- !u!54 &4465435765173616556
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -920,6 +921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDamage: 20
   myAnim: {fileID: 0}
+  gameMenu: {fileID: 3624315268396613536, guid: b1db0fb26c27edb4bb6c10b0caae6a5a, type: 3}
 --- !u!95 &1712834395
 Animator:
   serializedVersion: 4

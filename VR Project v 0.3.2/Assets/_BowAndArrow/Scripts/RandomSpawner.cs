@@ -7,16 +7,22 @@ public class RandomSpawner : MonoBehaviour
     public GameObject enemy;
     private float rebootingTime;
     public float spawnTime = 5.0f;
+    public GameObject gameMenu;
+
+ 
 
     // Update is called once per frame
     void Update()
     {
-        rebootingTime += Time.deltaTime;
-
-        if (rebootingTime >= spawnTime)
+        if (!gameMenu.activeSelf)
         {
-            spawnEnemy();
-            rebootingTime = 0;
+            rebootingTime += Time.deltaTime;
+
+            if (rebootingTime >= spawnTime)
+            {
+                spawnEnemy();
+                rebootingTime = 0;
+            }
         }
     }
 
