@@ -9,6 +9,7 @@ public class DeadController : MonoBehaviour
     public FadeSceen fadeScreen;
     private float endTimer = 4.0f;
     private float time = 0;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,8 @@ public class DeadController : MonoBehaviour
         Damageable d = transform.gameObject.GetComponent<Damageable>();
         if(d.Health <= 0)
         {
+           
+    
             time += Time.deltaTime;
             if ( time >= endTimer)
             {

@@ -23,7 +23,7 @@ public class DealDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameMenu.activeSelf)
+        if (gameMenu.activeSelf)
         {
             return;
         }
@@ -41,7 +41,7 @@ public class DealDamage : MonoBehaviour
             if (distance <= 2.0f)
             {
                 transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-                if (d)
+                if (d && rebootingTime >= damageTime)
                 {
                     myAnim.Play("Attack01");
                     d.DealDamage(enemyDamage);

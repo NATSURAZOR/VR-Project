@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
 {
-    public GameObject enemy;
+    public List<GameObject> enemies;
     private float rebootingTime;
     public float spawnTime = 5.0f;
     public GameObject gameMenu;
@@ -51,6 +51,6 @@ public class RandomSpawner : MonoBehaviour
 
         //enemy.transform.localScale *= enemyScale();
         Vector3 randomSpawnPosition = getSpawnPostion();
-        Instantiate(enemy, randomSpawnPosition, Quaternion.identity);
+        Instantiate(enemies[Random.Range(0, 2)], randomSpawnPosition, Quaternion.identity);
     }
 }
