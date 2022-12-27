@@ -5,7 +5,7 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 public class GameMenu : MonoBehaviour
 {
-    [SerializeField]float m_AxisToPressThreshold = 1f;
+    [SerializeField]float m_AxisToPressThreshold = 0.5f;
     InputDevice m_InputDevice;
     [SerializeField]
     XRNode m_ControllerNode = XRNode.RightHand;
@@ -45,7 +45,7 @@ public class GameMenu : MonoBehaviour
                     gameMenu.SetActive(true);
                     leftRenderer.material = materialMenu;
                     rightRenderer.material = materialMenu;
-                    light.intensity = 0.0f;
+                    light.intensity = 0.5f;
                     bow.SetActive(false);
                 }else if (gameMenu.activeSelf)
                 {

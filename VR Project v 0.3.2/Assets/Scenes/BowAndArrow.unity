@@ -3419,7 +3419,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5805,7 +5805,7 @@ PrefabInstance:
     - target: {fileID: 111323249, guid: 1bec6a3d7e503db458468e4aa3710a33, type: 3}
       propertyPath: gameMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1497440000}
     - target: {fileID: 4938432626850679474, guid: 1bec6a3d7e503db458468e4aa3710a33, type: 3}
       propertyPath: m_InteractionManager
       value: 
