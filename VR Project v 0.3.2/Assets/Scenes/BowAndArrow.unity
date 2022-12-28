@@ -2093,6 +2093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3624315268396613536, guid: b1db0fb26c27edb4bb6c10b0caae6a5a, type: 3}
+      propertyPath: m_TagString
+      value: gameMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 3624315268396613540, guid: b1db0fb26c27edb4bb6c10b0caae6a5a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5806,6 +5810,10 @@ PrefabInstance:
       propertyPath: gameMenu
       value: 
       objectReference: {fileID: 1497440000}
+    - target: {fileID: 111323249, guid: 1bec6a3d7e503db458468e4aa3710a33, type: 3}
+      propertyPath: reClickTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4938432626850679474, guid: 1bec6a3d7e503db458468e4aa3710a33, type: 3}
       propertyPath: m_InteractionManager
       value: 
