@@ -41,19 +41,18 @@ public class RandomSpawner : MonoBehaviour
         float[] zRange = new float[] { Random.Range(-40f, -10f), Random.Range(10f, 40f) };
         z = zRange[Random.Range(0, 2)];
 
-
         return new Vector3(x, y, z);
     }
 
-    //private float enemyScale()
-    //{
-        //return Random.Range(0.7f, 1.5f);
-    //}
+    private float enemyScale()
+    {
+       return Random.Range(0.9f, 1.1f);
+    }
     private void spawnEnemy()
     {
-
-        //enemy.transform.localScale *= enemyScale();
+        GameObject enemy =  enemies[Random.Range(0, 2)];
+        enemy.transform.localScale *= enemyScale();
         Vector3 randomSpawnPosition = getSpawnPostion();
-        Instantiate(enemies[Random.Range(0, 2)], randomSpawnPosition, Quaternion.identity);
+        Instantiate(enemy, randomSpawnPosition, Quaternion.identity);
     }
 }

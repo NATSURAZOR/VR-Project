@@ -8,8 +8,6 @@ public class EnemyMove : MonoBehaviour
     private GameObject player;
 
     private Vector3 heading;
-    private float time;
-    private float checkRotationTime = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +21,19 @@ public class EnemyMove : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("gameMenu").Length != 0)
         {
-           
             return;
         }
-     
+
+       
+        KillCounter counter = player.GetComponent<KillCounter>();
+        if (counter.killCount >= 20)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * speed * Time.deltaTime);
+            return;
+        }
+        
+
         heading = transform.position - player.transform.position;
-        time += Time.deltaTime;
         float distance = heading.magnitude;
         Vector3 direction = heading / distance;
 
@@ -38,12 +43,16 @@ public class EnemyMove : MonoBehaviour
             transform.rotation = new Quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
         }
         else {
-            if (time >= checkRotationTime)
-            {
-                transform.LookAt(player.transform.position);
-            }
-      
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+         
+            transform.LookAt(player.transform.position);
+            var lookPos = player.transform.position - transform.position;
+            lookPos.y = player.transform.rotation.y;
+            var rotation = Quaternion.LookRotation(lookPos);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.125f);
+            
+
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position,  speed * Time.deltaTime);
         }
         
         

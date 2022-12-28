@@ -14,7 +14,7 @@ public class GameMenu : MonoBehaviour
     public LineRenderer rightRenderer;
     public Material materialMenu;
     public Material defaultMaterial;
-    public Light light;
+    private GameObject light;
     public GameObject bow;
 
     private float time;
@@ -29,7 +29,7 @@ public class GameMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        light = GameObject.FindGameObjectsWithTag("Light")[0];
     }
 
     // Update is called once per frame
@@ -46,9 +46,9 @@ public class GameMenu : MonoBehaviour
                     gameMenu.SetActive(true);
                     leftRenderer.material = materialMenu;
                     rightRenderer.material = materialMenu;
-                    light.intensity = 0.5f;
+                    light.GetComponent<Light>().intensity = 0.5f;
                     bow.SetActive(false);
-                    Time.timeScale = 0;
+                    
                 }
                 else if (gameMenu.activeSelf)
                 {
@@ -56,9 +56,9 @@ public class GameMenu : MonoBehaviour
                     gameMenu.SetActive(false);
                     leftRenderer.material = defaultMaterial;
                     rightRenderer.material = defaultMaterial;
-                    light.intensity = 1.0f;
+                    light.GetComponent<Light>().intensity = 1.5f;
                     bow.SetActive(true);
-                    Time.timeScale = 1;
+                   
                 }
             }
             time += Time.deltaTime;

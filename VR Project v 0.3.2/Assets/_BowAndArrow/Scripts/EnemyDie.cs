@@ -23,10 +23,17 @@ public class EnemyDie : MonoBehaviour
       
         if (d.Health <= 0)
         {
+            GameObject player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+            KillCounter counter = player.GetComponent<KillCounter>();
+            
             time += Time.deltaTime;
             myAnim.Play("Die");
             if (time >= endTimer)
             {
+                if (counter)
+                {
+                    counter.killCount += 1;
+                }
                 d.DestroyThis();
             }
         }
