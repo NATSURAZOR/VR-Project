@@ -14,16 +14,19 @@ public class RandomSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!gameMenu.activeSelf)
+        if (GameObject.FindGameObjectsWithTag("gameMenu").Length != 0)
         {
-            rebootingTime += Time.deltaTime;
-
-            if (rebootingTime >= spawnTime)
-            {
-                spawnEnemy();
-                rebootingTime = 0;
-            }
+            return;
         }
+
+        rebootingTime += Time.deltaTime;
+
+        if (rebootingTime >= spawnTime)
+        {
+            spawnEnemy();
+            rebootingTime = 0;
+        }
+        
     }
 
     private Vector3 getSpawnPostion()

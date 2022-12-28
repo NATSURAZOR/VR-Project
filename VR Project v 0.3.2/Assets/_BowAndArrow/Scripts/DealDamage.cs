@@ -12,7 +12,6 @@ public class DealDamage : MonoBehaviour
 
     private float rebootingTime;
     private float damageTime = 2.0f;
-    public GameObject gameMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +22,17 @@ public class DealDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameMenu.activeSelf)
+        if (GameObject.FindGameObjectsWithTag("gameMenu").Length != 0)
         {
+            myAnim.enabled = false;
             return;
         }
 
+        if (myAnim.enabled == false)
+        {
+            myAnim.enabled = true;
+        }
+        
         float distance = Vector3.Distance(transform.position, player.transform.position);
         rebootingTime += Time.deltaTime;
 

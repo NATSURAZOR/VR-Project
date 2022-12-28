@@ -35,7 +35,8 @@ public class GameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsPressed(InputHelpers.Button.SecondaryButton)){
+        if (IsPressed(InputHelpers.Button.SecondaryButton))
+        {
             if (time == 0.0f || time >= reClickTime)
             {
                 time = 0.0f;
@@ -47,7 +48,9 @@ public class GameMenu : MonoBehaviour
                     rightRenderer.material = materialMenu;
                     light.intensity = 0.5f;
                     bow.SetActive(false);
-                }else if (gameMenu.activeSelf)
+                    Time.timeScale = 0;
+                }
+                else if (gameMenu.activeSelf)
                 {
                     time += Time.deltaTime;
                     gameMenu.SetActive(false);
@@ -55,10 +58,12 @@ public class GameMenu : MonoBehaviour
                     rightRenderer.material = defaultMaterial;
                     light.intensity = 1.0f;
                     bow.SetActive(true);
+                    Time.timeScale = 1;
                 }
             }
             time += Time.deltaTime;
         }
+
 
     }
 
