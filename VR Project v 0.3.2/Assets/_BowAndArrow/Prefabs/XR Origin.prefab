@@ -971,7 +971,6 @@ MonoBehaviour:
   rightRenderer: {fileID: 4938432626850679473}
   materialMenu: {fileID: 2100000, guid: 7c7565935a618eb47aa9153eed59b903, type: 2}
   defaultMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  light: {fileID: 0}
   bow: {fileID: 0}
   reClickTime: 2
 --- !u!1 &4938432628121350181
