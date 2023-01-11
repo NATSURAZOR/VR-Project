@@ -14,6 +14,10 @@ public class QuestText : MonoBehaviour
     private float endTimer = 4.0f;
     private float time = 0;
     private float secondTime = 0;
+    private float thirdTime = 0;
+    public int killsToWin;
+    public SceneTransitionManager sceneTransition;
+    public int sceneId;
 
     Canvas canvas;
     // Start is called before the first frame update
@@ -21,7 +25,7 @@ public class QuestText : MonoBehaviour
     {
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         canvas = GetComponent<Canvas>();
-        text.text = "Advanturer first steps.\nKill 20 slimes or Turtle:\n0 / 15";
+        text.text = "Advanturer first steps.\nKil " + killsToWin +  " slimes or Turtle:\n0 / " + killsToWin;
     }
 
     // Update is called once per frame
@@ -35,7 +39,7 @@ public class QuestText : MonoBehaviour
         }
 
         KillCounter counter = player.GetComponent<KillCounter>();
-        if (counter.killCount >= 20 && secondTime <= endTimer)
+        if (counter.killCount >= killsToWin && secondTime <= endTimer)
         {
             secondTime += Time.deltaTime;
             canvas.renderMode = RenderMode.ScreenSpaceCamera;
@@ -46,12 +50,21 @@ public class QuestText : MonoBehaviour
 
         if (secondTime >= endTimer)
         {
+            thirdTime += Time.deltaTime;
             text.text = "Enemies run away!";
+            return;
+        }
+        
+        if (thirdTime >= endTimer)
+        {
+            Debug.Log("next scene");
+            text.text = "Teleport to Next level";
+            sceneTransition.GoToScene(sceneId);
             return;
         }
 
 
-        text.text = counter.killCount + " / 20";
+        text.text = counter.killCount + " / " + killsToWin;
         
         canvas.renderMode = RenderMode.WorldSpace;
    

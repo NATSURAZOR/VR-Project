@@ -8,8 +8,11 @@ public class RandomSpawner : MonoBehaviour
     private float rebootingTime;
     public float spawnTime = 5.0f;
     public GameObject gameMenu;
+    public List<int> minusPosOfSpawnX;
+    public List<int> plusPosOfSpawnlX;
+    public List<int> minusPosOfSpawnZ;
+    public List<int> plusPosOfSpawnlZ;
 
- 
 
     // Update is called once per frame
     void Update()
@@ -35,10 +38,10 @@ public class RandomSpawner : MonoBehaviour
          
         y = 4.0f;
 
-        float[] xRange = new float[] { Random.Range(-40f, -10f), Random.Range(10f, 40f) };
+        float[] xRange = new float[] { Random.Range(minusPosOfSpawnX[0], minusPosOfSpawnX[1]), Random.Range(plusPosOfSpawnlX[0], plusPosOfSpawnlX[1]) };
         x = xRange[Random.Range(0, xRange.Length)];
 
-        float[] zRange = new float[] { Random.Range(-40f, -10f), Random.Range(10f, 40f) };
+        float[] zRange = new float[] { Random.Range(minusPosOfSpawnZ[0], minusPosOfSpawnZ[1]), Random.Range(plusPosOfSpawnlZ[0], plusPosOfSpawnlZ[1]) };
         z = zRange[Random.Range(0, 2)];
 
         return new Vector3(x, y, z);
