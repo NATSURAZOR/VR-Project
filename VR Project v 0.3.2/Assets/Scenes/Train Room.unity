@@ -12503,6 +12503,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 836229631902017234, guid: bb72e0a5d00e26549917fffd5cc62301, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.83
+      objectReference: {fileID: 0}
     - target: {fileID: 836229632024904651, guid: bb72e0a5d00e26549917fffd5cc62301, type: 3}
       propertyPath: fadeScreen
       value: 

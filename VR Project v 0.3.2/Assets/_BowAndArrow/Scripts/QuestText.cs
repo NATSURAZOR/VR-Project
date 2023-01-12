@@ -48,7 +48,7 @@ public class QuestText : MonoBehaviour
             return;
         }
 
-        if (secondTime >= endTimer)
+        if (secondTime >= endTimer && thirdTime <= endTimer)
         {
             thirdTime += Time.deltaTime;
             text.text = "Enemies run away!";
@@ -57,8 +57,16 @@ public class QuestText : MonoBehaviour
         
         if (thirdTime >= endTimer)
         {
-            Debug.Log("next scene");
-            text.text = "Teleport to Next level";
+            if (killsToWin == 20)
+            {
+                text.text = "Thanks for playing our DEMO :)";
+            }
+            else
+            {
+                text.text = "Teleport to Next level";
+            }
+            
+            Debug.Log(sceneId);
             sceneTransition.GoToScene(sceneId);
             return;
         }

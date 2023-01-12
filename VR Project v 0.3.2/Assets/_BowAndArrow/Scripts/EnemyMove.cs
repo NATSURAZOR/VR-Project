@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using BNG;
 
 public class EnemyMove : MonoBehaviour
 {
@@ -22,10 +23,6 @@ public class EnemyMove : MonoBehaviour
             killsToWin = 10;
         }else if (sceneID == 3)
         {
-            killsToWin = 15;
-        }
-        else
-        {
             killsToWin = 20;
         }
 
@@ -34,6 +31,15 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+
+        Damageable d = transform.gameObject.GetComponent<Damageable>();
+
+        if (d.Health <= 0)
+        {
+            return;
+        }
+
         if (GameObject.FindGameObjectsWithTag("gameMenu").Length != 0)
         {
             return;
