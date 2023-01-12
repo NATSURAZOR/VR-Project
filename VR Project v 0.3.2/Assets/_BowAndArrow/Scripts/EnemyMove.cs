@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using BNG;
 
 public class EnemyMove : MonoBehaviour
 {
     public float speed = 10f;
     private GameObject player;
-
+    private int killsToWin;
+    private int sceneID;
     private Vector3 heading;
 
     // Start is called before the first frame update
@@ -14,11 +17,29 @@ public class EnemyMove : MonoBehaviour
     {
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         transform.LookAt(player.transform.position);
+        sceneID = SceneManager.GetActiveScene().buildIndex;
+        if(sceneID == 2)
+        {
+            killsToWin = 10;
+        }else if (sceneID == 3)
+        {
+            killsToWin = 20;
+        }
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+
+        Damageable d = transform.gameObject.GetComponent<Damageable>();
+
+        if (d.Health <= 0)
+        {
+            return;
+        }
+
         if (GameObject.FindGameObjectsWithTag("gameMenu").Length != 0)
         {
             return;
@@ -26,7 +47,7 @@ public class EnemyMove : MonoBehaviour
 
        
         KillCounter counter = player.GetComponent<KillCounter>();
-        if (counter.killCount >= 20)
+        if (counter.killCount >= killsToWin)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, -1 * speed * Time.deltaTime);
             return;
