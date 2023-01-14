@@ -25,7 +25,7 @@ public class QuestText : MonoBehaviour
     {
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         canvas = GetComponent<Canvas>();
-        text.text = "Advanturer first steps.\nKil " + killsToWin +  " slimes or Turtle:\n0 / " + killsToWin;
+        text.text = "Advanturer first steps.\nKill " + killsToWin +  " slimes or Turtle:\n0 / " + killsToWin;
     }
 
     // Update is called once per frame
