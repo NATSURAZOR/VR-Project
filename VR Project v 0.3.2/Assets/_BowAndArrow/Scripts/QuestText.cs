@@ -25,7 +25,7 @@ public class QuestText : MonoBehaviour
     {
         player = GameObject.FindGameObjectsWithTag("MainCamera")[0];
         canvas = GetComponent<Canvas>();
-        text.text = "Advanturer first steps.\nKill " + killsToWin +  " slimes or Turtle:\n0 / " + killsToWin;
+        text.text = "Adventurer first steps.\nKill " + killsToWin +  " slimes or Turtle:\n0 / " + killsToWin;
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class QuestText : MonoBehaviour
         if (secondTime >= endTimer && thirdTime <= endTimer)
         {
             thirdTime += Time.deltaTime;
-            text.text = "Enemies run away!";
+            text.text = "Enemies are running away!";
             return;
         }
         
@@ -63,7 +63,7 @@ public class QuestText : MonoBehaviour
             }
             else
             {
-                text.text = "Teleport to Next level";
+                text.text = "Teleporting to the Next level";
             }
             
             Debug.Log(sceneId);

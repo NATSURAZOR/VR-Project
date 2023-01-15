@@ -23007,11 +23007,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\t\tAdvanturer Story\n My name is John. I'm 20.\n I'm good at shooting
-    from Bow. My \n father Arnold teach me. He was a \n knight of kingdom. When I
-    was 17 \n he did not come back from the war.  \n I don't rememeber my mother.
-    She \n leave us when I was 4. I have little \n sister, she is ill. That why I
-    choose  \n the profession of advanturer in Gild \n \"Fairy tail\"."
+  m_text: "\t        Adventurer Story\n  My name is John. I'm 20.\n  I'm good at
+    shooting from Bow. My \n  father Arnold teach me. He was a \n  knight of kingdom.
+    When I was 17 \n  he did not come back from the war.  \n  I don't remember my
+    mother. She \n  leave us when I was 4. I have little \n  sister, she is ill.
+    That why I choose  \n  the profession of advanturer in the \n  Gild \"Fairy tail\"."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
